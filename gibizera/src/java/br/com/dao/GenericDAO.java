@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package br.com.dao;
 
-import Model.TipoPapel;
-import Model.TipoLombada;
+import br.com.model.TipoPapel;
+import br.com.model.TipoLombada;
 import java.util.List;
 
 /**

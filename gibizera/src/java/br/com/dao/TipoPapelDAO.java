@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package br.com.dao;
 
-import ConnectionBD.ConnectionFactory;
-import Model.TipoPapel;
+import br.com.connectionFactory.ConnectionFactory;
+import br.com.model.TipoPapel;
 import java.sql.Connection;
 import java.util.List;
 import java.sql.PreparedStatement;

@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package br.com.dao;
 
 import java.sql.Connection;
-import ConnectionBD.ConnectionFactory;
-import Model.Pessoa;
+import br.com.connectionFactory.ConnectionFactory;
+import br.com.model.Pessoa;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
