@@ -17,7 +17,7 @@
                 <Fieldset>
                     <legend><h1>Deem um liga nesse site:</h1></legend>
                     
-                    <a heref="https://comickult.com/">Comic Kult - Esse é Foderoso</a><br><br>
+                    <a href="https://comickult.com/">Comic Kult - Esse é Foderoso</a><br><br>
                     
                 </Fieldset>
             </center>
