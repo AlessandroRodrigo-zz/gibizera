@@ -20,24 +20,24 @@ import java.util.List;
  * @author Aluno
  */
 public class TipoPapelDAO implements GenericDAO {
-
-    private Connection Connection;
-
+    
+    private Connection conexao;
+    
     public TipoPapelDAO() throws Exception {
         try {
-            this.Connection = ConnectionFactory.getConnection();
+            this.conexao = ConnectionFactory.getConnection();
             System.out.println("Conexão bem sucedida!");
         } catch (Exception ex) {
             throw new Exception("Problemas com a conexão. Verifique." + " Erro:" + ex.getMessage());
         }
     }
-
+    
     @Override
     public Boolean Cadastrar(Object objeto) {
-
+        
         TipoPapel cTipoPapel = (TipoPapel) objeto;
         Boolean bRetorno = false;
-
+        
         if (cTipoPapel.getiSeqTipoPapel() == 0) {
             bRetorno = this.Inserir(cTipoPapel);
         } else {
@@ -45,135 +45,130 @@ public class TipoPapelDAO implements GenericDAO {
         }
         return bRetorno;
     }
-
+    
     @Override
     public Boolean Inserir(Object objeto) {
-
+        
         TipoPapel cTipoPapel = (TipoPapel) objeto;
         PreparedStatement Stmt = null;
 
         //Prepara comando SQL
         String strSQL = "Insert Into TipoPapel (SeqTipoPapel, Descricao) Values (?, ?);";
-
+        
         try {
-            Stmt = Connection.prepareStatement(strSQL);
-
+            Stmt = conexao.prepareStatement(strSQL);
+            
             try {
                 Stmt.setInt(1, new TipoPapel().getiSeqTipoPapel());
                 Stmt.setString(2, new TipoPapel().getiDescricao());
-
+                
             } catch (Exception ex) {
                 System.out.println("Problemas ao cadastrar Tipo do Papel! Erro:" + ex.getMessage());
                 ex.printStackTrace();
             }
             Stmt.execute();
             return true;
-
+            
         } catch (SQLException ex) {
             System.out.println("Problemas ao cadastrar Tipo do Papel! Erro:" + ex.getMessage());
             ex.printStackTrace();
             return false;
-
+            
         } finally {
             try {
-                ConnectionFactory.CloseConnection(Connection, Stmt);
+                ConnectionFactory.CloseConnection(conexao, Stmt);
             } catch (Exception ex) {
                 System.out.println("Problemas ao fechar os parâmetros de conexão! Erro:" + ex.getMessage());
                 ex.printStackTrace();
             }
-
+            
         }
     }
-
+    
     @Override
     public Boolean Alterar(Object objeto) {
-
+        
         TipoPapel cTipoPapel = (TipoPapel) objeto;
         PreparedStatement Stmt = null;
 
         /*PreparedStatement = prepara a intrução SQL*/
         String strSQL = " Update TipoPapel set Descricao = ? Where SeqTipoPapel = ?;";
-
+        
         try {
-            Stmt = Connection.prepareStatement(strSQL);
+            Stmt = conexao.prepareStatement(strSQL);
             Stmt.setString(1, new TipoPapel().getiDescricao());
-
+            
             Stmt.executeUpdate();
             return true;
-
+            
         } catch (SQLException ex) {
             System.out.println("Problemas ao alterar Tipo do Papel! Erro:" + ex.getMessage());
             ex.printStackTrace();
             return false;
-
+            
         } finally {
-
+            
             try {
-                ConnectionFactory.CloseConnection(Connection, Stmt);
+                ConnectionFactory.CloseConnection(conexao, Stmt);
             } catch (Exception ex) {
                 System.out.println("Problemas ao fechar os parâmetros de conexão! Erro:" + ex.getMessage());
                 ex.printStackTrace();
             }
         }
     }
-
+    
     @Override
-    public Boolean Excluir(int Numero) {
-
-        PreparedStatement Stmt = null;
-
-        String strSQL = "Delete From TipoPapel Where SeqPapel = ?;"
-                + "commit;";
-
+    public Boolean Excluir(Object objeto) {
+        TipoPapel oTipoPapel = (TipoPapel) objeto;
+        int idTipoPapel = oTipoPapel.getiSeqTipoPapel();
+        PreparedStatement stmt = null;
+        String situacao = "";
+        if (oTipoPapel.getSituacaoPapel().equals(situacao)) {
+            situacao = "I";
+        } else {
+            situacao = "A";
+        }
+        String sql = "update tipolombada set situacao=? where idtipolombada=?";
+        
         try {
-            Stmt = Connection.prepareStatement(strSQL);
-            Stmt.setInt(1, Numero);
-            Stmt.executeUpdate();
-
+            stmt = conexao.prepareStatement(sql);
+            stmt.setString(1, situacao);
+            stmt.setInt(2, idTipoPapel);
+            stmt.execute();
             return true;
-
-        } catch (SQLException ex) {
-            System.out.println("Problema ao excluir Tipo do papel! Erro:" + ex.getMessage());
-            ex.printStackTrace();
-
+        } catch (Exception e) {
+            System.out.println("Problemas ao excluir Tipo Papel! Erro: " + e.getMessage());
             return false;
-
-        } finally {
-            try {
-                ConnectionFactory.CloseConnection(Connection, Stmt);
-            } catch (Exception ex) {
-                System.out.println("Problemas ao fechar os parâmetros de conexão! Erro:" + ex.getMessage());
-                ex.printStackTrace();
-            }
         }
     }
-
+    
     @Override
-    public Object Carregar(int Numero) {
-
-        PreparedStatement Stmt = null;
+    public Object Carregar(int numero) {
+        
+        PreparedStatement stmt = null;
         ResultSet rs = null;
         TipoPapel cTipoPapel = null;
-
+        
         String strSQL = "Select T.* From TipoPapel P Where T.SeqTipoPapel = ?;";
         try {
-            Stmt = Connection.prepareStatement(strSQL);
-            Stmt.setInt(1, Numero);
-            rs = Stmt.executeQuery();
-
-            if (rs.next()) {
+            stmt = conexao.prepareStatement(strSQL);
+            stmt.setInt(1, numero);
+            rs = stmt.executeQuery();
+            
+            while (rs.next()) {
                 cTipoPapel = new TipoPapel();
                 cTipoPapel.setiSeqTipoPapel(rs.getInt("SeqTipoPapel"));
                 cTipoPapel.setiDescricao(rs.getString("Descricao"));
+                cTipoPapel.setSituacaoPapel(rs.getString("situacao"));
             }
-
+            return cTipoPapel;
         } catch (SQLException ex) {
             System.out.println("Problemas ao carregar Tipo do Papel! Erro: " + ex.getMessage());
             ex.printStackTrace();
-
+            
         } finally {
             try {
-                ConnectionFactory.CloseConnection(Connection, Stmt, rs);
+                ConnectionFactory.CloseConnection(conexao, stmt, rs);
             } catch (Exception ex) {
                 System.out.println("Problemas ao fechar os parâmetros de conexão! Erro:" + ex.getMessage());
                 ex.printStackTrace();
@@ -181,20 +176,20 @@ public class TipoPapelDAO implements GenericDAO {
         }
         return cTipoPapel;
     }
-
+    
     @Override
     public List<Object> Listar() {
         
         List<Object> Lista = new ArrayList<>();
         PreparedStatement Stmt = null;
         ResultSet rs = null;
-
+        
         String strSQL = "Select T.* from TipoPapel T Where T.SeqTipoPapel = ? Order By T.Descricao;";
-
+        
         try {
-            Stmt = Connection.prepareStatement(strSQL);
+            Stmt = conexao.prepareStatement(strSQL);
             rs = Stmt.executeQuery();
-
+            
             while (rs.next()) {
                 TipoPapel cTipoPapel = new TipoPapel();
                 cTipoPapel.setiSeqTipoPapel(rs.getInt("SeqTipoPapel"));
@@ -206,8 +201,8 @@ public class TipoPapelDAO implements GenericDAO {
             ex.printStackTrace();
         } finally {
             try {
-                ConnectionFactory.CloseConnection(Connection, Stmt, rs);
-
+                ConnectionFactory.CloseConnection(conexao, Stmt, rs);
+                
             } catch (Exception ex) {
                 System.out.println("Problemas ao fechar os parâmetros de conexão! Erro:" + ex.getMessage());
                 ex.printStackTrace();
@@ -215,5 +210,5 @@ public class TipoPapelDAO implements GenericDAO {
         }
         return Lista;
     }
-
+    
 }

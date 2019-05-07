@@ -10,10 +10,17 @@ package br.com.model;
  * @author Aluno
  */
 public class TipoPapel {
-    
+
     private int iSeqTipoPapel;
     private String iDescricao;
+    private String situacaoPapel;
 
+    public TipoPapel(int iSeqTipoPapel, String iDescricao, String situacaoPapel) {
+        this.iSeqTipoPapel = iSeqTipoPapel;
+        this.iDescricao = iDescricao;
+        this.situacaoPapel = situacaoPapel;
+    }
+    
     public TipoPapel() {
     }
 
@@ -32,7 +39,13 @@ public class TipoPapel {
     public void setiDescricao(String iDescricao) {
         this.iDescricao = iDescricao;
     }
-    
-    
-    
+
+    public String getSituacaoPapel() {
+        return situacaoPapel;
+    }
+
+    public void setSituacaoPapel(String situacaoPapel) {
+        this.situacaoPapel = situacaoPapel;
+    }
+
 }

@@ -53,7 +53,7 @@ public class TipoLombadaDAO implements GenericDAO{
     }
 
     @Override
-    public Boolean Excluir(int Numero) {
+    public Boolean Excluir(Object objeto) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
