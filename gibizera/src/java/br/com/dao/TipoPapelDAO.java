@@ -180,35 +180,36 @@ public class TipoPapelDAO implements GenericDAO {
     @Override
     public List<Object> Listar() {
         
-        List<Object> Lista = new ArrayList<>();
-        PreparedStatement Stmt = null;
+        List<Object> listaResultado = new ArrayList<>();
+        PreparedStatement stmt = null;
         ResultSet rs = null;
         
         String strSQL = "Select T.* from TipoPapel T Where T.SeqTipoPapel = ? Order By T.Descricao;";
         
         try {
-            Stmt = conexao.prepareStatement(strSQL);
-            rs = Stmt.executeQuery();
+            stmt = conexao.prepareStatement(strSQL);
+            rs = stmt.executeQuery();
             
             while (rs.next()) {
                 TipoPapel cTipoPapel = new TipoPapel();
                 cTipoPapel.setiSeqTipoPapel(rs.getInt("SeqTipoPapel"));
                 cTipoPapel.setiDescricao(rs.getString("Descricao"));
-                Lista.add(cTipoPapel);
+                cTipoPapel.setSituacaoPapel("situacao");
+                listaResultado.add(cTipoPapel);
             }
         } catch (SQLException ex) {
             System.out.println("Problemas ao listar Tipo do Papel! Erro: " + ex.getMessage());
             ex.printStackTrace();
         } finally {
             try {
-                ConnectionFactory.CloseConnection(conexao, Stmt, rs);
+                ConnectionFactory.CloseConnection(conexao, stmt, rs);
                 
             } catch (Exception ex) {
                 System.out.println("Problemas ao fechar os parâmetros de conexão! Erro:" + ex.getMessage());
                 ex.printStackTrace();
             }
         }
-        return Lista;
+        return listaResultado;
     }
     
 }
