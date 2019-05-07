@@ -128,7 +128,7 @@ public class TipoLombadaDAO implements GenericDAO {
             Stmt.setInt(1, Numero);
             rs = Stmt.executeQuery();
 
-            if (rs.next()) {
+            while (rs.next()) {
                 cTipoLombada = new TipoLombada();
                 cTipoLombada.setiSeqTipoLombada(rs.getInt("SeqTipoLombada"));
                 cTipoLombada.setiDescricao(rs.getString("Descricao"));
