@@ -13,6 +13,15 @@ public class TipoLombada {
     
     private int iSeqTipoLombada;
     private String iDescricao;
+    private String situacao;
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
+    }
 
     public TipoLombada() {
     }
