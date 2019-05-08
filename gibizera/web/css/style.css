@@ -1077,13 +1077,13 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 48px;
   display: inline-block;
   margin-bottom: 10px;
-  color: #f82249;
+  color: #b5840c;
 }
 
 #contact .contact-info address,
 #contact .contact-info p {
   margin-bottom: 0;
-  color: #112363;
+  color: #fff;
 }
 
 #contact .contact-info h3 {
@@ -1091,15 +1091,15 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin-bottom: 15px;
   font-weight: bold;
   text-transform: uppercase;
-  color: #112363;
+  color: #fff;
 }
 
 #contact .contact-info a {
-  color: #4869df;
+  color: #dbdbdb;
 }
 
 #contact .contact-info a:hover {
-  color: #f82249;
+  color: #fff;
 }
 
 #contact .contact-address,
@@ -1109,11 +1109,12 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #contact .form #sendmessage {
-  color: #f82249;
-  border: 1px solid #f82249;
+  color: #b5840c;
+  border: 1px solid #b5840c;
   display: none;
   text-align: center;
   padding: 15px;
+  border-radius: 10px;
   font-weight: 600;
   margin-bottom: 15px;
 }
@@ -1494,7 +1495,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #Gibi .card1 .btn:hover {
-  background: none;
+  background-color: #b5840c;
 }
 /* ----------------------------------OUTRO GIBI----------------------------------------- */
 #Gibi .card2 {
@@ -1546,7 +1547,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #Gibi .card2 .btn:hover {
-  background: none;
+  background-color: #096a9b;
 }
 /*-------------------------------------OUTRO GIBI---------------------------------------*/
 
@@ -1599,7 +1600,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #Gibi .card3 .btn:hover {
-  background: none;
+  background-color: #4c4c4c;
 }
 
 #Gibi #Gibi-modal input,
