@@ -34,12 +34,13 @@
         <!-- Main Stylesheet File -->
         <link href="css/style.css" rel="stylesheet">
 
-        <!-- =======================================================
-          Theme Name: TheEvent
-          Theme URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
-          Author: BootstrapMade.com
-          License: https://bootstrapmade.com/license/
-        ======================================================= -->
+        <script>
+            $(document).ready(function(e) {
+                $('h6').on('click', function() {
+                    $('.social').stop().slideToggle();
+                });
+            })
+        </script>
     </head>
 
     <body>
@@ -66,7 +67,9 @@
                         <li><a href="#gallery">WallPapers</a></li>
                         <li><a href="#supporters">Colaboradores</a></li>
                         <li><a href="#contact">Contato</a></li>
-                        <li class="buy-tickets"><a href="#" class="btn" data-toggle="modal" data-target="#Logar" data-ticket-type="standard-access">Logar/Cadastrar</a></li>
+                        <li><a href="Admininastrô/index.jsp">Admin</a></li>
+                        <li class="buy-tickets"><a href="" class="btn" data-toggle="modal" data-target="#Logar" data-ticket-type="standard-access">Logar/Cadastrar</a></li>
+                        <!--<li><a href="Usuario/index.jsp">Perfil</a></li>-->
                         <!--<a href="#buy-tickets">Logar/Cadastrar</a>-->
                     </ul>
                 </nav><!-- #nav-menu-container -->
@@ -180,49 +183,18 @@
             <!-- Modal Order Form -->
             <div id="Logar" class="modal fade">
                 <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <!--<div class="modal-header">
-                            <h4 class="modal-title">Buy Tickets</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="POST" action="#">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="your-name" placeholder="Your Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" name="your-email" placeholder="Your Email">
-                                </div>
-                                <div class="form-group">
-                                    <select id="ticket-type" name="ticket-type" class="form-control" >
-                                        <option value="">-- Select Your Ticket Type --</option>
-                                        <option value="standard-access">Standard Access</option>
-                                        <option value="pro-access">Pro Access</option>
-                                        <option value="premium-access">Premium Access</option>
-                                    </select>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn">Buy Now</button>
-                                </div>
-                            </form>
-                        </div>-->
-                        <!-- Modal content -->
-                        <!-- <div class="modal-content">-->
-                        <div id="wrapper">
-                            <form autocomplete="off">
-                                <div class="input-wrapper">
-                                    <label for="username"><i class="fa fa-user fa-2x"></i></label><input type="text" id="username" placeholder="Login" spellcheck="false">
-                                </div>
-                                <div class="input-wrapper">
-                                    <label for="password"><i class="fa fa-lock fa-2x"></i></label><input type="password" id="password" placeholder="Senha">
-                                </div>
-                                <div class="input-wrapper">
-                                    <input type="submit" value="Sign In">
-                                    <p>
-                                        Não tem cadastro? <a href="#">Faça aqui</a> <span>&rarr;</span>
-                                    </p>
+                    <div class="modal-logar">
+                        <div id="LogarModal">
+                            <form>
+                                <h1><span>.</span> .</h1>
+                                <input placeholder="Usuário" type="text"/>
+                                <input placeholder="Senha" type="password"/>
+                                <button class="btn">Logar</button>
+                                <h6>Redes Sociais</h6>
+                                <div class="social">
+                                    <button class="tw btn">Twitter</button>
+                                    <button class="fb btn">Facebook</button>
+                                    <button class="google fb btn">Google+</button>
                                 </div>
                             </form>
                         </div>
@@ -241,9 +213,9 @@
                     <div class="col-lg-6">
                         <h2>Sobre Gibizeraaa!</h2>
                         <p>Gibizera é um site fodido de TOPPEr pra você meu caro que não sai de casa pra comprar um gibizão,
-                        que fica o tempo todo na frente de um PC, agora você pode socializar com as outras pessoas iguais a você
-                        sem precisar ver Posts de feministas gordas no Facebook ou alguém implicar contigo, e quem sabe arrumar uma
-                        WEBNAMORADA.</p>
+                            que fica o tempo todo na frente de um PC, agora você pode socializar com as outras pessoas iguais a você
+                            sem precisar ver Posts de feministas gordas no Facebook ou alguém implicar contigo, e quem sabe arrumar uma
+                            WEBNAMORADA.</p>
                     </div>
                     <div class="col-lg-3">
                         <h3>Where</h3>

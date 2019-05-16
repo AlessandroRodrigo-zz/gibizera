@@ -39,6 +39,7 @@ public class SalvarTipoPapel extends HttpServlet {
         
         /*Pega da Tela*/
         String mensagem = null;
+        Integer idTipoPapel = Integer.parseInt(request.getParameter("idTipoPapel"));
         String descricaoTipoPapel = request.getParameter("descricaoTipoPapel");
         String situacaoTipoPapel = request.getParameter("situacaoTipoPapel");
         
@@ -49,7 +50,7 @@ public class SalvarTipoPapel extends HttpServlet {
         
         /*Se ja tiver ID, manda pra classe*/
         if (request.getParameter("idTipoPapel") != null) {            
-            cTipoPapel.setiSeqTipoPapel(Integer.parseInt(request.getParameter("idTipoPapel")));
+            cTipoPapel.setiSeqTipoPapel(idTipoPapel);
         }
 
         try {
@@ -66,7 +67,7 @@ public class SalvarTipoPapel extends HttpServlet {
                 mensagem = "Problema ao alterar Tipo do Papel!";
             }
             request.setAttribute("Sucesso", mensagem);
-            request.getRequestDispatcher("TipoPapel/AlterarTipoPapel.jsp").forward(request, response);
+            request.getRequestDispatcher("TipoPapel/CadastrarTipoPapel.jsp").forward(request, response);
         } catch (Exception ex) {
             System.out.println("Problemas ao cadastrar Tipo do Papel! Erro:" + ex.getMessage());
             ex.printStackTrace();

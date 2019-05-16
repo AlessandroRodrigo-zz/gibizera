@@ -2359,7 +2359,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 
 a.btn.disabled,
 fieldset:disabled a.btn {
-  pointer-events: none;
+  
 }
 
 .btn-primary {
@@ -2927,7 +2927,7 @@ fieldset:disabled a.btn {
 
 .btn-link:disabled, .btn-link.disabled {
   color: #6c757d;
-  pointer-events: none;
+  
 }
 
 .btn-lg, .btn-group-lg > .btn {
@@ -3331,7 +3331,7 @@ input[type="button"].btn-block {
 .btn-group-toggle > .btn-group > .btn input[type="checkbox"] {
   position: absolute;
   clip: rect(0, 0, 0, 0);
-  pointer-events: none;
+  
 }
 
 .input-group {
