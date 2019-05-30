@@ -13,12 +13,14 @@ public class Administrador extends Pessoa{
     
     private Integer seqPessoa;
 
-    public Administrador(Integer seqPessoa, String nomePessoa, String ufPessoa, String cidadePessoa, String telefonePessoa, String loginPessoa, String senhaPessoa, String tipoPessoa, String emailPessoa) {
-        super(seqPessoa, nomePessoa, ufPessoa, cidadePessoa, telefonePessoa, loginPessoa, senhaPessoa, tipoPessoa, emailPessoa);
+    public Administrador(Integer seqPessoa) {
         this.seqPessoa = seqPessoa;
     }
 
-    
+    public Administrador(Integer seqPessoa, Integer idPessoa, String nomePessoa, String cpfPessoa, String enderecoPessoa, String situacaoPessoa) {
+        super(idPessoa, nomePessoa, cpfPessoa, enderecoPessoa, situacaoPessoa);
+        this.seqPessoa = seqPessoa;
+    }
 
     public Integer getseqPessoa() {
         return seqPessoa;
@@ -26,8 +28,6 @@ public class Administrador extends Pessoa{
 
     public void setseqPessoa(Integer seqPessoa) {
         this.seqPessoa = seqPessoa;
-    }
-    
-    
+    }  
     
 }

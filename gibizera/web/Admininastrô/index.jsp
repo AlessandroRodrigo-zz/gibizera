@@ -36,6 +36,7 @@
             <legend><font color="White"> Página do Admininastrô</font> </legend>
 
             <a href="../TipoPapel/CadastrarTipoPapel.jsp" class="btn">Cadastrar Tipo do Papel</a><br><br>
+            <a href="../Pessoa/CadastrarPessoa.jsp" class="btn">Cadastrar Pessoa</a><br><br>
             <a href="../TipoPapel/ListarTipoPapel.jsp" class="btn">Tipos de Papéis</a>
             <br><br>
             <a href="../index.jsp" class="btn">Voltar para o site</a>

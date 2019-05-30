@@ -17,14 +17,22 @@ public class Usuario extends Pessoa{
     private Integer conquistaUsuario;
     private Integer tempoUsuario;
 
-    public Usuario(Integer seqUsuario, Integer cpfUsuario, Integer pontuacaoUsuario, Integer conquistaUsuario, Integer tempoUsuario, Integer idPessoa, String nomePessoa, String ufPessoa, String cidadePessoa, String telefonePessoa, String loginPessoa, String senhaPessoa, String tipoPessoa, String emailPessoa) {
-        super(idPessoa, nomePessoa, ufPessoa, cidadePessoa, telefonePessoa, loginPessoa, senhaPessoa, tipoPessoa, emailPessoa);
+    public Usuario(Integer seqUsuario, Integer cpfUsuario, Integer conquistaUsuario, Integer tempoUsuario) {
         this.seqUsuario = seqUsuario;
         this.cpfUsuario = cpfUsuario;
-        this.pontuacaoUsuario = pontuacaoUsuario;
         this.conquistaUsuario = conquistaUsuario;
         this.tempoUsuario = tempoUsuario;
     }
+
+    public Usuario(Integer seqUsuario, Integer cpfUsuario, Integer conquistaUsuario, Integer tempoUsuario, Integer idPessoa, String nomePessoa, String cpfPessoa, String enderecoPessoa, String situacaoPessoa) {
+        super(idPessoa, nomePessoa, cpfPessoa, enderecoPessoa, situacaoPessoa);
+        this.seqUsuario = seqUsuario;
+        this.cpfUsuario = cpfUsuario;
+        this.conquistaUsuario = conquistaUsuario;
+        this.tempoUsuario = tempoUsuario;
+    }
+
+
 
     public Integer getSeqUsuario() {
         return seqUsuario;
